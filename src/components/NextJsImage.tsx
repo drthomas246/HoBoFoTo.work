@@ -11,7 +11,7 @@ export default function NextJsImage({
       <Image
         fill
         src={photo}
-        style={{borderRadius: "4px",border: "solid 4px rgb(243 244 246)"}}
+        style={{ borderRadius: "4px", border: "solid 4px rgb(243 244 246)" }}
         placeholder={"blurDataURL" in photo ? "blur" : undefined}
         {...{ alt, title, sizes, className, onClick }}
       />
