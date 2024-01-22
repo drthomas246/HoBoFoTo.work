@@ -24,6 +24,8 @@ const Home = () => {
   });
   const animTime = 1000;
   let scrolling = false;
+  let startY: number|null = null;
+  let endY: number|null = null;
   const pagination = () => {
     scrolling = true;
 
@@ -66,12 +68,37 @@ const Home = () => {
       navigateDown();
     }
   };
+  function logSwipeStart(event: TouchEvent) {
+    event.preventDefault();
+
+    startY = event.touches[0].pageY;
+  }
+  function logSwipe(event: TouchEvent) {
+    event.preventDefault();
+    endY = event.touches[0].pageY;
+  }
+  function logSwipeEnd(event: TouchEvent) {
+    event.preventDefault();
+    if(endY!==null && startY!==null){
+      if( 0 < (endY - startY) ) {
+        navigateUp();
+      } else {
+        navigateDown();
+      }
+    }
+  }
   useEffect(() => {
     document.addEventListener("wheel", eventWheel);
     document.addEventListener("keydown", eventKeydown);
+    document.addEventListener("touchstart", logSwipeStart);
+    document.addEventListener("touchmove", logSwipe);
+    document.addEventListener("touchend", logSwipeEnd);
     return () => {
       document.removeEventListener("wheel", eventWheel);
       document.removeEventListener("keydown", eventKeydown);
+      document.removeEventListener("touchstart", logSwipeStart);
+      document.removeEventListener("touchmove", logSwipe);
+      document.removeEventListener("touchend", logSwipeEnd);
     };
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, []);
