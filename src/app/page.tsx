@@ -24,8 +24,8 @@ const Home = () => {
   });
   const animTime = 1000;
   let scrolling = false;
-  let startY: number|null = null;
-  let endY: number|null = null;
+  let startY: number | null = null;
+  let endY: number | null = null;
   const pagination = () => {
     scrolling = true;
 
@@ -69,6 +69,8 @@ const Home = () => {
     }
   };
   function logSwipeStart(event: TouchEvent) {
+    event.preventDefault();
+
     startY = event.touches[0].pageY;
   }
   function logSwipe(event: TouchEvent) {
@@ -76,13 +78,15 @@ const Home = () => {
     endY = event.touches[0].pageY;
   }
   function logSwipeEnd(event: TouchEvent) {
-    event.preventDefault();
-    if(endY!==null && startY!==null){
-      if( 0 < (endY - startY) ) {
+    // event.preventDefault();
+    if (endY !== null && startY !== null) {
+      if (0 < endY - startY) {
         navigateUp();
       } else {
         navigateDown();
       }
+      startY = null;
+      endY = null;
     }
   }
   useEffect(() => {

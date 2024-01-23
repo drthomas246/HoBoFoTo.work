@@ -6,7 +6,7 @@ import { Blog } from "../../libs/microcms";
 
 const BlogCard = ({ post }: { post: Blog }) => {
   return (
-    <div className="max-w-sm rounded-lg border border-gray-200 bg-white shadow dark:border-gray-700 dark:bg-gray-800">
+    <div className="max-w-sm rounded-lg border border-gray-200 bg-white shadow">
       <Link href={`./blog/${post.id}`}>
         <Image
           className="rounded-t-lg"
