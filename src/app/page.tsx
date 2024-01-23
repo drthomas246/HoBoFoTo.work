@@ -69,8 +69,6 @@ const Home = () => {
     }
   };
   function logSwipeStart(event: TouchEvent) {
-    event.preventDefault();
-
     startY = event.touches[0].pageY;
   }
   function logSwipe(event: TouchEvent) {
