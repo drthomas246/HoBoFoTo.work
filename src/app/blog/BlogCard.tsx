@@ -2,7 +2,7 @@ import Image from "next/image";
 import Link from "next/link";
 import React from "react";
 
-import { Blog } from "../../libs/microcms";
+import { Blog } from "../../../libs/microcms";
 
 const BlogCard = ({ post }: { post: Blog }) => {
   return (

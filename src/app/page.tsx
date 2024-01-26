@@ -113,7 +113,7 @@ const Home = () => {
         <div className="skw-page__half skw-page__half--left absolute left-0 top-0 h-screen w-1/2">
           <div className="absolute left-[-40%] top-0 h-full w-[140%] skew-x-[-18deg] overflow-hidden bg-black">
             <div className="skw-page__content absolute left-0 top-0 flex size-full origin-top-left-1-0 skew-x-[18deg] flex-col flex-wrap items-center justify-center bg-[#292929] bg-cover px-[30%] py-0 text-gray-100">
-              <Image alt="bg" src={robson} layout="fill" objectFit="cover" />
+              <Image alt="bg" src={robson} style={{ objectFit: "cover" }} fill priority />
             </div>
           </div>
         </div>
@@ -164,7 +164,7 @@ const Home = () => {
         <div className="skw-page__half skw-page__half--right absolute left-1/2 top-0 h-screen w-1/2">
           <div className="absolute right-[-40%] top-0 h-full w-[140%] skew-x-[-18deg] overflow-hidden bg-black">
             <div className="skw-page__content absolute left-0 top-0 flex size-full origin-top-left-0-1 skew-x-[18deg] flex-col flex-wrap items-center justify-center bg-[#292929] bg-cover px-[30%] py-0 text-gray-100">
-              <Image alt="bg" src={sam} layout="fill" objectFit="cover" />
+              <Image alt="bg" src={sam} style={{ objectFit: "cover" }} fill priority />
             </div>
           </div>
         </div>
@@ -176,7 +176,7 @@ const Home = () => {
         <div className="skw-page__half skw-page__half--left absolute left-0 top-0 h-screen w-1/2">
           <div className="absolute left-[-40%] top-0 h-full w-[140%] skew-x-[-18deg] overflow-hidden bg-black">
             <div className="skw-page__content absolute left-0 top-0 flex size-full origin-top-left-1-0 skew-x-[18deg] flex-col flex-wrap items-center justify-center bg-[#292929] bg-cover px-[30%]  py-0 text-gray-100">
-              <Image alt="bg" src={denis} layout="fill" objectFit="cover" />
+              <Image alt="bg" src={denis} style={{ objectFit: "cover" }} fill priority />
             </div>
           </div>
         </div>
@@ -233,7 +233,7 @@ const Home = () => {
         <div className="skw-page__half skw-page__half--right absolute left-1/2 top-0 h-screen w-1/2">
           <div className="absolute right-[-40%] top-0 h-full w-[140%] skew-x-[-18deg] overflow-hidden bg-black">
             <div className="skw-page__content absolute left-0 top-0 flex size-full origin-top-left-0-1 skew-x-[18deg] flex-col flex-wrap items-center justify-center bg-[#292929] bg-cover px-[30%] py-0 text-gray-100">
-              <Image alt="bg" src={hatsukami} layout="fill" objectFit="cover" />
+              <Image alt="bg" src={hatsukami} style={{ objectFit: "cover" }} fill priority />
             </div>
           </div>
         </div>
@@ -248,8 +248,9 @@ const Home = () => {
               <Image
                 alt="bg"
                 src={hatsukami2}
-                layout="fill"
-                objectFit="cover"
+                fill
+                priority
+                style={{ objectFit: "cover" }}
               />
             </div>
           </div>

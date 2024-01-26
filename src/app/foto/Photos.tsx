@@ -1,22 +1,18 @@
-
 import "yet-another-react-lightbox/styles.css";
 import "yet-another-react-lightbox/plugins/thumbnails.css";
 
-import React, { use, useState } from "react";
-import PhotoAlbum from "react-photo-album";
+import React, { useState } from "react";
+import PhotoAlbum, {Photo} from "react-photo-album";
 import Lightbox from "yet-another-react-lightbox";
 import Fullscreen from "yet-another-react-lightbox/plugins/fullscreen";
 import Slideshow from "yet-another-react-lightbox/plugins/slideshow";
 import Thumbnails from "yet-another-react-lightbox/plugins/thumbnails";
 import Zoom from "yet-another-react-lightbox/plugins/zoom";
 
-import NextJsImage from "@/components/NextJsImage";
+import NextJsImage from "@/app/foto/NextJsImage";
 
-import { getMedia } from "../../libs/microcms";
-
-
-const Photos = () => {
-  const photos = use(getMedia());
+const Photos = ({photos}:{photos: Photo[]}) => {
+  
   const [index, setIndex] = useState(-1);
   return(
     <>

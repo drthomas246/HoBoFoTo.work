@@ -1,6 +1,6 @@
 import React from "react";
 
-import BlogCard from "@/components/BlogCard";
+import BlogCard from "@/app/blog/BlogCard";
 import Return from "@/components/Return";
 
 import { getList } from "../../../libs/microcms";
