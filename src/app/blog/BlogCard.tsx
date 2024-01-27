@@ -4,7 +4,7 @@ import React from "react";
 
 import Date2String from "@/components/DateString";
 
-import { Blog } from "../../../libs/MicroCms";
+import { Blog } from "../../../libs/microcms";
 
 const BlogCard = ({ post, list }: { post: Blog; list: string }) => {
   const updateDate = Date2String(post.updatedAt);

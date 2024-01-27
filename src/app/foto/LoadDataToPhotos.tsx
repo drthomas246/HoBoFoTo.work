@@ -2,7 +2,7 @@ import React, { use } from "react";
 
 import Photos from "@/app/foto/Photos";
 
-import { getMedia } from "../../../libs/MicroCms";
+import { getMedia } from "../../../libs/microcms";
 
 const LoadDataToPhotos = () => {
   const photos = use(getMedia());

@@ -4,7 +4,7 @@ import React from "react";
 import Date2String from "@/components/DateString";
 import Return from "@/components/Return";
 
-import { getDetail } from "../../../../libs/MicroCms";
+import { getDetail } from "../../../../libs/microcms";
 
 const Home = async ({ params: { postId } }: { params: { postId: string } }) => {
   const post = await getDetail(postId);
