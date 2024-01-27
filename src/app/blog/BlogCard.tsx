@@ -2,42 +2,50 @@ import Image from "next/image";
 import Link from "next/link";
 import React from "react";
 
-import { Blog } from "../../../libs/microcms";
+import Date2String from "@/components/DateString";
 
-const BlogCard = ({ post }: { post: Blog }) => {
+import { Blog } from "../../../libs/MicroCms";
+
+const BlogCard = ({ post, list }: { post: Blog; list: string }) => {
+  const updateDate = Date2String(post.updatedAt);
+  let link: string;
+  if (list === "category") {
+    link = `../../blog/${post.id}`;
+  } else {
+    link = `./blog/${post.id}`;
+  }
   return (
     <div className="max-w-sm rounded-lg border border-gray-200 bg-white shadow">
-      <Link href={`./blog/${post.id}`}>
+      <Link href={link}>
         <Image
           className="rounded-t-lg"
           src={post.eyecatch!.url}
           width={post.eyecatch!.width}
           height={post.eyecatch!.height}
-          alt=""
+          alt="eyecatch"
+          priority
         />
       </Link>
       <div className="p-5">
-        <Link href={`./blog/${post.id}`}>
-          <h5 className="mb-2 font-yuseiMagic text-2xl font-bold tracking-tight text-gray-900">
+        <Link href={link}>
+          <h5 className="mb-2 font-yuseiMagic text-xl font-bold tracking-tight text-gray-900">
             {post.title}
           </h5>
         </Link>
-        <p className="mb-3 font-maruGo font-normal text-gray-700">
-          正しいことをしても怒られるは一体どんな存在なのかをきっちりわかるのが全ての問題の解くキーとなります。
+        <p className="mb-3 font-maruGo text-sm font-normal text-gray-700">
+          {post.metadescription}
         </p>
         <div className="block text-right">
           <time
-            dateTime="2022-09-02"
+            dateTime={updateDate}
             className="order-first flex items-center text-base text-gray-900"
           >
-            <span className="ml-3 w-full text-right text-sm">
-              {post.updatedAt}
-            </span>
+            <span className="ml-3 w-full text-right text-sm">{updateDate}</span>
           </time>
         </div>
         <div className="pt-4">
           <Link
-            href={`./blog/${post.id}`}
+            href={link}
             className="mr-2 inline-flex items-center rounded-lg bg-blue-600 px-3 py-2 text-center text-sm font-medium text-white hover:bg-blue-800 focus:outline-none focus:ring-4 focus:ring-blue-300 dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800"
           >
             Read more
@@ -50,16 +58,18 @@ const BlogCard = ({ post }: { post: Blog }) => {
             >
               <path
                 stroke="currentColor"
-                stroke-linecap="round"
-                stroke-linejoin="round"
-                stroke-width="2"
+                strokeLinecap="round"
+                strokeLinejoin="round"
+                strokeWidth="2"
                 d="M1 5h12m0 0L9 1m4 4L9 9"
               />
             </svg>
           </Link>
-          <span className="mb-2 mr-2 inline-block rounded-full bg-gray-200 px-3 py-1 text-sm font-semibold text-gray-700">
-            #{post.category!.name}
-          </span>
+          <Link href={`./blog/category/${post.category}`}>
+            <span className="mb-2 mr-2 inline-block rounded-full bg-gray-200 px-3 py-1 text-sm font-semibold text-gray-700">
+              #{post.category}
+            </span>
+          </Link>
         </div>
       </div>
     </div>

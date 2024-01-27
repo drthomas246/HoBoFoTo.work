@@ -1,22 +1,15 @@
 import { createClient, MicroCMSDate, MicroCMSImage, MicroCMSQueries } from "microcms-js-sdk";
 
-//カテゴリーの型定義
-export type Category = {
-  id: string;
-  createdAt: string;
-  updatedAt: string;
-  publishedAt: string;
-  revisedAt: string;
-  name: string;
-}
+import Date2String from "@/components/DateString";
 
 //ブログの型定義
 export type Blog = {
   id: string;
   title: string;
+  metadescription: string;
   content: string;
   eyecatch?: MicroCMSImage;
-  category?: Category;
+  category: string;
 } & MicroCMSDate;
 
 //画像の型定義
@@ -33,6 +26,7 @@ export type Media = {
   updatedAt: string;
   publishedAt: string;
   revisedAt: string;
+  title: string;
   image: Url;
 }
 
@@ -89,6 +83,8 @@ export const getMedia = async (queries?: MicroCMSQueries) => {
     src: photo.image.url,
     width: photo.image.width,
     height: photo.image.height,
+    title: photo.title,
+    description: Date2String(photo.createdAt),
     srcSet: breakpoints.map((breakpoint) => {
       const height = Math.round((photo.image.height / photo.image.width) * breakpoint);
       return {
