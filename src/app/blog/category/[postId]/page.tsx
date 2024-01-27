@@ -3,7 +3,7 @@ import React from "react";
 import BlogCard from "@/app/blog/BlogCard";
 import Return from "@/components/Return";
 
-import { getList } from "../../../../../libs/MicroCms";
+import { getList } from "../../../../../libs/microcms";
 
 const Home = async ({ params: { postId } }: { params: { postId: string } }) => {
   const { contents } = await getList({
