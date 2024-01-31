@@ -1,5 +1,3 @@
-"use client";
-
 import React, { Suspense } from "react";
 
 import Return from "@/components/Return";
@@ -17,10 +15,10 @@ const Loading = () => {
 const PhotoGallery = () => {
   return (
     <>
-      <h1 className="mb-4 mt-2 text-center font-microgramma text-5xl text-gray-100">
+      <h2 className="mb-4 mt-2 text-center font-microgramma text-5xl text-gray-100">
         Gallery
-      </h1>
-      <Return />
+      </h2>
+      <Return curPage="1" />
       <div className="p-4">
         <Suspense fallback={<Loading />}>
           <LoadDataToPhotos />

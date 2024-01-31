@@ -46,10 +46,10 @@ const Home = () => {
   };
   return (
     <div className="mx-auto my-5 max-w-2xl">
-      <Return />
-      <h1 className="mb-4 mt-2 text-center font-microgramma text-5xl text-gray-100">
+      <Return curPage="3" />
+      <h2 className="mb-4 mt-2 text-center font-microgramma text-5xl text-gray-100">
         Software
-      </h1>
+      </h2>
       <div className="mt-8 font-maruGo text-lg text-gray-100 [&>p]:indent-4">
         <div className="border-b border-gray-100 text-center text-sm font-medium text-gray-400">
           <ul className="-mb-px flex flex-wrap">
@@ -58,7 +58,7 @@ const Home = () => {
                 onClick={changeTab}
                 ref={softwareTab.current[0]}
                 data-tab={0}
-                className="inline-block rounded-t-lg border-b-2 border-transparent p-4 text-gray-100 hover:border-gray-200 hover:text-gray-200"
+                className="inline-block rounded-t-lg border-b-2 border-transparent text-gray-100 hover:border-gray-200 hover:text-gray-200 sm:p-4"
               >
                 大阪周辺高校情報
               </button>
@@ -68,7 +68,7 @@ const Home = () => {
                 onClick={changeTab}
                 ref={softwareTab.current[1]}
                 data-tab={1}
-                className="inline-block rounded-t-lg border-b-2 border-transparent p-4 hover:border-gray-200 hover:text-gray-200"
+                className="inline-block rounded-t-lg border-b-2 border-transparent hover:border-gray-200 hover:text-gray-200 sm:p-4"
               >
                 Novel Editor
               </button>
@@ -78,7 +78,7 @@ const Home = () => {
                 onClick={changeTab}
                 ref={softwareTab.current[2]}
                 data-tab={2}
-                className="inline-block rounded-t-lg border-b-2 border-transparent p-4 hover:border-gray-200 hover:text-gray-200"
+                className="inline-block rounded-t-lg border-b-2 border-transparent hover:border-gray-200 hover:text-gray-200 sm:p-4"
               >
                 日課表作成システム
               </button>

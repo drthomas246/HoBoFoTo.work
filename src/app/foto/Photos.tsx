@@ -1,3 +1,5 @@
+"use client";
+
 import "yet-another-react-lightbox/styles.css";
 import "yet-another-react-lightbox/plugins/thumbnails.css";
 import "yet-another-react-lightbox/plugins/captions.css";
@@ -35,7 +37,7 @@ const Photos = ({ photos }: { photos: Photo[] }) => {
         close={() => setIndex(-1)}
         // enable optional lightbox plugins
         plugins={[Captions, Fullscreen, Slideshow, Thumbnails, Zoom]}
-        captions={{showToggle: true, descriptionTextAlign: "end"}}
+        captions={{ showToggle: true, descriptionTextAlign: "end" }}
       />
     </>
   );

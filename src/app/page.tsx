@@ -2,6 +2,7 @@
 
 import Image from "next/image";
 import Link from "next/link";
+import { useSearchParams } from "next/navigation";
 import React, { createRef, RefObject, useEffect, useRef } from "react";
 
 import sam from "../../public/AdobeStock_199050913.jpeg";
@@ -11,12 +12,19 @@ import hatsukami from "../../public/AdobeStock_359658626.jpeg";
 import hatsukami2 from "../../public/AdobeStock_374606998.jpeg";
 
 const Home = () => {
+  const router = useSearchParams();
   const Dot =
     "absolute bottom-2 left-1/2 before:content-null before:absolute before:block before:bottom-0 before:w-2 before:h-2 before:rounded-full before:bg-gray-100 after:content-null after:absolute after:bottom-0 after:left-0.6 after:w-0.5 after:h-12 after:bg-gray-100";
   let downDot = `${Dot} before:animate-down`;
   let upDot = `${Dot} before:animate-up`;
   let upDownDot = `${Dot} before:animate-upDown`;
+  let curPageParam = false;
   let curPage = 0;
+  if (router.get("curPage") !== null) {
+    curPage = parseInt(router.get("curPage") as string, 10);
+    curPageParam = true;
+  }
+  console.log(router.get("curPage"));
   const numOfPages = 5;
   const skwPage = useRef<RefObject<HTMLDivElement>[]>([]);
   [...Array(numOfPages)].forEach((_, number) => {
@@ -95,6 +103,9 @@ const Home = () => {
     document.addEventListener("touchstart", logSwipeStart);
     document.addEventListener("touchmove", logSwipe);
     document.addEventListener("touchend", logSwipeEnd);
+    if (curPageParam) {
+      pagination();
+    }
     return () => {
       document.removeEventListener("wheel", eventWheel);
       document.removeEventListener("keydown", eventKeydown);
@@ -111,7 +122,7 @@ const Home = () => {
         ref={skwPage.current[0]}
       >
         <div className="skw-page__half skw-page__half--left absolute left-0 top-0 h-screen w-1/2">
-          <div className="absolute left-[-40%] top-0 h-full w-[140%] skew-x-[-18deg] overflow-hidden bg-black">
+          <div className="absolute left-[-80%] top-0 h-full w-[180%] skew-x-[-18deg] overflow-hidden bg-black sm:left-[-40%] sm:w-[140%]">
             <div className="skw-page__content absolute left-0 top-0 flex size-full origin-top-left-1-0 skew-x-[18deg] flex-col flex-wrap items-center justify-center bg-[#292929] bg-cover px-[30%] py-0 text-gray-100">
               <Image
                 alt="bg"
@@ -124,14 +135,14 @@ const Home = () => {
           </div>
         </div>
         <div className="skw-page__half skw-page__half--right absolute left-1/2 top-0 h-screen w-1/2">
-          <div className="absolute right-[-40%] top-0 h-full w-[140%] skew-x-[-18deg] overflow-hidden bg-black">
+          <div className="absolute right-[-80%] top-0 h-full w-[180%] skew-x-[-18deg] overflow-hidden bg-black sm:right-[-40%] sm:w-[140%]">
             <div className="skw-page__content absolute left-0 top-0 flex size-full origin-top-left-0-1 skew-x-[18deg] flex-col flex-wrap items-center justify-center bg-[#292929] bg-cover px-[30%] py-0 text-gray-100">
-              <h2 className="mb-4 text-center font-microgramma text-2xl">
+              <h1 className="mb-4 text-center font-microgramma text-2xl">
                 HoBoFoTo.work
-              </h2>
-              <p className="text-center font-ab text-lg">
+              </h1>
+              <h3 className="text-center font-ab text-lg">
                 写真とブログとソフトウェアと
-              </p>
+              </h3>
               <div className={downDot}>
                 <span className="absolute bottom-1 left-4 font-ofelia text-sm tracking-wider">
                   Scroll
@@ -146,19 +157,19 @@ const Home = () => {
         ref={skwPage.current[1]}
       >
         <div className="skw-page__half skw-page__half--left absolute left-0 top-0 h-screen w-1/2">
-          <div className="absolute left-[-40%] top-0 h-full w-[140%] skew-x-[-18deg] overflow-hidden bg-black">
+          <div className="absolute left-[-80%] top-0 h-full w-[180%] skew-x-[-18deg] overflow-hidden bg-black sm:left-[-40%] sm:w-[140%]">
             <div className="skw-page__content absolute left-0 top-0 flex size-full origin-top-left-1-0 skew-x-[18deg] flex-col flex-wrap items-center justify-center bg-[#292929] bg-cover px-[30%] py-0 text-gray-100">
               <h2 className="mb-4 text-center font-microgramma text-2xl">
                 Foto
               </h2>
-              <p className="text-center font-ab text-lg">
+              <h3 className="text-center font-ab text-lg">
                 <Link
                   href="./foto"
                   className="border-b border-blue-300 text-blue-300"
                 >
                   写真たち
                 </Link>
-              </p>
+              </h3>
               <div className={upDownDot}>
                 <span className="absolute bottom-1 left-4 font-ofelia text-sm tracking-wider">
                   Scroll
@@ -168,7 +179,7 @@ const Home = () => {
           </div>
         </div>
         <div className="skw-page__half skw-page__half--right absolute left-1/2 top-0 h-screen w-1/2">
-          <div className="absolute right-[-40%] top-0 h-full w-[140%] skew-x-[-18deg] overflow-hidden bg-black">
+          <div className="absolute right-[-80%] top-0 h-full w-[180%] skew-x-[-18deg] overflow-hidden bg-black sm:right-[-40%] sm:w-[140%]">
             <div className="skw-page__content absolute left-0 top-0 flex size-full origin-top-left-0-1 skew-x-[18deg] flex-col flex-wrap items-center justify-center bg-[#292929] bg-cover px-[30%] py-0 text-gray-100">
               <Image
                 alt="bg"
@@ -186,7 +197,7 @@ const Home = () => {
         ref={skwPage.current[2]}
       >
         <div className="skw-page__half skw-page__half--left absolute left-0 top-0 h-screen w-1/2">
-          <div className="absolute left-[-40%] top-0 h-full w-[140%] skew-x-[-18deg] overflow-hidden bg-black">
+          <div className="absolute left-[-80%] top-0 h-full w-[180%] skew-x-[-18deg] overflow-hidden bg-black sm:left-[-40%] sm:w-[140%]">
             <div className="skw-page__content absolute left-0 top-0 flex size-full origin-top-left-1-0 skew-x-[18deg] flex-col flex-wrap items-center justify-center bg-[#292929] bg-cover px-[30%]  py-0 text-gray-100">
               <Image
                 alt="bg"
@@ -199,19 +210,19 @@ const Home = () => {
           </div>
         </div>
         <div className="skw-page__half skw-page__half--right absolute left-1/2 top-0 h-screen w-1/2">
-          <div className="absolute right-[-40%] top-0 h-full w-[140%] skew-x-[-18deg] overflow-hidden bg-black">
+          <div className="absolute right-[-80%] top-0 h-full w-[180%] skew-x-[-18deg] overflow-hidden bg-black sm:right-[-40%] sm:w-[140%]">
             <div className="skw-page__content absolute left-0 top-0 flex size-full origin-top-left-0-1 skew-x-[18deg] flex-col flex-wrap items-center justify-center bg-[#292929] bg-cover px-[30%] py-0 text-gray-100">
               <h2 className="mb-4 text-center font-microgramma text-2xl">
                 Blog
               </h2>
-              <p className="text-center font-ab text-lg">
+              <h3 className="text-center font-ab text-lg">
                 <Link
                   href="./blog"
                   className="border-b border-blue-300 text-blue-300"
                 >
                   ブログ
                 </Link>
-              </p>
+              </h3>
               <div className={upDownDot}>
                 <span className="absolute bottom-1 left-4 font-ofelia text-sm tracking-wider">
                   Scroll
@@ -226,20 +237,20 @@ const Home = () => {
         ref={skwPage.current[3]}
       >
         <div className="skw-page__half skw-page__half--left absolute left-0 top-0 h-screen w-1/2">
-          <div className="absolute left-[-40%] top-0 h-full w-[140%] skew-x-[-18deg] overflow-hidden bg-black">
+          <div className="absolute left-[-80%] top-0 h-full w-[180%] skew-x-[-18deg] overflow-hidden bg-black sm:left-[-40%] sm:w-[140%]">
             <div className="skw-page__content absolute left-0 top-0 flex size-full origin-top-left-1-0 skew-x-[18deg] flex-col flex-wrap items-center justify-center bg-[#292929] bg-cover px-[30%] py-0  text-gray-100">
               <h2 className="mb-4 text-center font-microgramma text-2xl">
                 Software
               </h2>
 
-              <p className="text-center font-ab text-lg">
+              <h3 className="text-center font-ab text-lg">
                 <Link
                   href="./software"
                   className="border-b border-blue-300 text-blue-300"
                 >
                   ソフトウエア
                 </Link>
-              </p>
+              </h3>
               <div className={upDownDot}>
                 <span className="absolute bottom-1 left-4 font-ofelia text-sm tracking-wider">
                   Scroll
@@ -249,7 +260,7 @@ const Home = () => {
           </div>
         </div>
         <div className="skw-page__half skw-page__half--right absolute left-1/2 top-0 h-screen w-1/2">
-          <div className="absolute right-[-40%] top-0 h-full w-[140%] skew-x-[-18deg] overflow-hidden bg-black">
+          <div className="absolute right-[-80%] top-0 h-full w-[180%] skew-x-[-18deg] overflow-hidden bg-black sm:right-[-40%] sm:w-[140%]">
             <div className="skw-page__content absolute left-0 top-0 flex size-full origin-top-left-0-1 skew-x-[18deg] flex-col flex-wrap items-center justify-center bg-[#292929] bg-cover px-[30%] py-0 text-gray-100">
               <Image
                 alt="bg"
@@ -267,7 +278,7 @@ const Home = () => {
         ref={skwPage.current[4]}
       >
         <div className="skw-page__half skw-page__half--left absolute left-0 top-0 h-screen w-1/2">
-          <div className="absolute left-[-40%] top-0 h-full w-[140%] skew-x-[-18deg] overflow-hidden bg-black">
+          <div className="absolute left-[-80%] top-0 h-full w-[180%] skew-x-[-18deg] overflow-hidden bg-black sm:left-[-40%] sm:w-[140%]">
             <div className="skw-page__content absolute left-0 top-0 flex size-full origin-top-left-1-0 skew-x-[18deg] flex-col flex-wrap items-center justify-center bg-[#292929] bg-cover px-[30%] py-0  text-gray-100">
               <Image
                 alt="bg"
@@ -280,7 +291,7 @@ const Home = () => {
           </div>
         </div>
         <div className="skw-page__half skw-page__half--right absolute left-1/2 top-0 h-screen w-1/2">
-          <div className="absolute right-[-40%] top-0 h-full w-[140%] skew-x-[-18deg] overflow-hidden bg-black">
+          <div className="absolute right-[-80%] top-0 h-full w-[180%] skew-x-[-18deg] overflow-hidden bg-black sm:right-[-40%] sm:w-[140%]">
             <div className="skw-page__content absolute left-0 top-0 flex size-full origin-top-left-0-1 skew-x-[18deg] flex-col flex-wrap items-center justify-center bg-[#292929] bg-cover px-[30%] py-0  text-gray-100">
               <h2 className="mb-4 text-center font-microgramma text-2xl">
                 About

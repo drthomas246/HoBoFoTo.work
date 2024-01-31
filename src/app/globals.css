@@ -32,7 +32,6 @@
   transform: skewX(18deg) scale(0.95);
 }
 
-/* HTML: <div class="loader"></div> */
 .loader {
   aspect-ratio: 2;
   --c:no-repeat linear-gradient(rgb(243 244 246) 0 0);
@@ -41,6 +40,12 @@
     l4-1 1.5s infinite,
     l4-2 1.5s infinite;
 }
+
+.container,
+.overlay:before {
+  background: url(/AdobeStock_437515308.jpeg) no-repeat fixed 0 0/cover;
+}
+
 @keyframes l4-1 {
   0%      {background-size: 0   4px,4px 0  ,0   4px,4px 0   ,0   4px,4px 0  ,0   4px}
   7.14%   {background-size: 25% 4px,4px 0  ,0   4px,4px 0   ,0   4px,4px 0  ,0   4px}
@@ -111,4 +116,49 @@
   100% {
     opacity: 0;
   }
+}
+
+ul.sample1{
+  padding: 0;
+  font: 14px/1.6 'arial narrow', sans-serif;
+  width:370px;
+  list-style: none;
+}
+ul.sample1 li{
+  position: relative;
+  padding: 0.5em 1em 0.5em 2.3em;
+  margin-bottom:5px;
+  color: rgb(243 244 246);
+  font-size: 15px;
+  font-weight: bold;
+  border-bottom: 1px solid rgba(243, 244, 246, 0.5);
+}
+ul.sample1 li:after,
+ul.sample1 li:before{
+  content: "";
+  position: absolute;
+  -webkit-transform: rotate(45deg);
+  -moz-transform: rotate(45deg);
+  -o-transform: rotate(45deg);
+  -ms-transform: rotate(45deg);
+  transform: rotate(45deg);
+}
+ul.sample1 li:before{
+  top: 0.7em;
+  left: 0.2em;
+  width: 12px;
+  height: 12px;
+  border:2px solid rgba(243, 244, 246, 0.5);
+}
+ul.sample1 li:after{
+  top: 0.9em;
+  left: 0.7em;
+  width: 14px;
+  height: 14px;
+  background: rgba(243, 244, 246, 0.3);
+  -webkit-transform: rotate(60deg);
+  -moz-transform: rotate(60deg);
+  -o-transform: rotate(60deg);
+  -ms-transform: rotate(60deg);
+  transform: rotate(60deg);
 }

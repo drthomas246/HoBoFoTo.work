@@ -11,9 +11,9 @@ const Home = async ({ params: { postId } }: { params: { postId: string } }) => {
   });
   return (
     <div className="mx-auto my-5 max-w-4xl">
-      <h1 className="mb-4 mt-2 text-center font-microgramma text-5xl text-gray-100">
+      <h2 className="mb-4 mt-2 text-center font-microgramma text-5xl text-gray-100">
         Category
-      </h1>
+      </h2>
       <Return />
       <div className="m-4 mt-8 grid grid-cols-2 gap-4">
         {contents.map((post) => {

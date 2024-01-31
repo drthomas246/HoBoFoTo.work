@@ -1,4 +1,5 @@
 import parse from "html-react-parser";
+import { Metadata } from "next";
 import React from "react";
 
 import Date2String from "@/components/DateString";
@@ -6,12 +7,27 @@ import Return from "@/components/Return";
 
 import { getDetail } from "../../../../libs/microcms";
 
+export async function generateMetadata({
+  params: { postId },
+}: {
+  params: { postId: string };
+}): Promise<Metadata> {
+  const post = await getDetail(postId);
+  return {
+    title: post.title,
+    description: post.metadescription,
+    openGraph: {
+      images: post.eyecatch?.url,
+    },
+  };
+}
+
 const Home = async ({ params: { postId } }: { params: { postId: string } }) => {
   const post = await getDetail(postId);
   const updateDate = Date2String(post.updatedAt);
   return (
-    <div className="mx-auto my-5 max-w-4xl">
-      <Return src="/blog" />
+    <div className="mx-4 my-5 max-w-4xl sm:mx-auto">
+      <Return />
       <header className="flex flex-col">
         <h2 className="mt-6 font-yuseiMagic text-4xl font-bold tracking-tight text-gray-100 sm:text-5xl dark:text-zinc-100">
           {post.title}
