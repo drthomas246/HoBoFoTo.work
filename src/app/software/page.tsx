@@ -40,25 +40,27 @@ const Home = () => {
       setTabNumber(parseInt(e.currentTarget.dataset.tab, 10));
     }
     for (let i = 0; i < softwareCountNumber; i += 1) {
-      softwareTab.current[i].current?.classList.remove("text-gray-100");
+      softwareTab.current[i].current?.classList.remove("text-[#292929]");
+      softwareTab.current[i].current?.classList.remove("dark:text-gray-100");
     }
-    e.currentTarget.classList.add("text-gray-100");
+    e.currentTarget.classList.add("text-[#292929]");
+    e.currentTarget.classList.add("dark:text-gray-100");
   };
   return (
     <div className="mx-auto my-5 max-w-2xl">
       <Return curPage="3" />
-      <h2 className="mb-4 mt-2 text-center font-microgramma text-5xl text-gray-100">
+      <h2 className="mb-4 mt-2 text-center font-microgramma text-5xl">
         Software
       </h2>
-      <div className="mt-8 font-maruGo text-lg text-gray-100 [&>p]:indent-4">
-        <div className="border-b border-gray-100 text-center text-sm font-medium text-gray-400">
+      <div className="mt-8 font-maruGo text-lg [&>p]:indent-4">
+        <div className="border-b border-[#292929] text-center text-sm font-medium text-gray-400 dark:border-gray-100">
           <ul className="-mb-px flex flex-wrap">
             <li className="me-2">
               <button
                 onClick={changeTab}
                 ref={softwareTab.current[0]}
                 data-tab={0}
-                className="inline-block rounded-t-lg border-b-2 border-transparent text-gray-100 hover:border-gray-200 hover:text-gray-200 sm:p-4"
+                className="inline-block rounded-t-lg border-b-2 border-transparent hover:border-gray-200 hover:text-gray-200 sm:p-4"
               >
                 大阪周辺高校情報
               </button>
@@ -86,51 +88,41 @@ const Home = () => {
           </ul>
         </div>
         <div>
-          <dl className="divide-y divide-gray-100">
+          <dl className="divide-y divide-[#292929] dark:divide-gray-100">
             <div className="px-4 py-6 sm:grid sm:grid-cols-3 sm:gap-4 sm:px-0">
-              <dt className="text-sm font-medium leading-6 text-gray-100">
-                Full name
-              </dt>
-              <dd className="mt-1 text-sm leading-6 text-gray-100 sm:col-span-2 sm:mt-0">
+              <dt className="text-sm font-medium leading-6">Full name</dt>
+              <dd className="mt-1 text-sm leading-6 sm:col-span-2 sm:mt-0">
                 {data[tabNumber].name}
               </dd>
             </div>
             <div className="px-4 py-6 sm:grid sm:grid-cols-3 sm:gap-4 sm:px-0">
-              <dt className="text-sm font-medium leading-6 text-gray-100">
-                Application for
-              </dt>
-              <dd className="mt-1 text-sm leading-6 text-gray-100 sm:col-span-2 sm:mt-0">
+              <dt className="text-sm font-medium leading-6">Application for</dt>
+              <dd className="mt-1 text-sm leading-6 sm:col-span-2 sm:mt-0">
                 {data[tabNumber].application}
               </dd>
             </div>
             <div className="px-4 py-6 sm:grid sm:grid-cols-3 sm:gap-4 sm:px-0">
-              <dt className="text-sm font-medium leading-6 text-gray-100">
-                License
-              </dt>
-              <dd className="mt-1 text-sm leading-6 text-gray-100 sm:col-span-2 sm:mt-0">
+              <dt className="text-sm font-medium leading-6">License</dt>
+              <dd className="mt-1 text-sm leading-6 sm:col-span-2 sm:mt-0">
                 {data[tabNumber].license}
               </dd>
             </div>
             <div className="px-4 py-6 sm:grid sm:grid-cols-3 sm:gap-4 sm:px-0">
-              <dt className="text-sm font-medium leading-6 text-gray-100">
-                Distributed to
-              </dt>
-              <dd className="mt-1 text-sm leading-6 text-blue-300 sm:col-span-2 sm:mt-0">
+              <dt className="text-sm font-medium leading-6">Distributed to</dt>
+              <dd className="mt-1 text-sm leading-6 text-blue-600 dark:text-blue-300 sm:col-span-2 sm:mt-0">
                 <Link
                   href={data[tabNumber].distributed}
                   rel="noopener noreferrer"
                   target="_blank"
-                  className="border-b border-blue-300"
+                  className="border-b border-blue-600 dark:border-blue-300"
                 >
                   {data[tabNumber].distributed}
                 </Link>
               </dd>
             </div>
             <div className="px-4 py-6 sm:grid sm:grid-cols-3 sm:gap-4 sm:px-0">
-              <dt className="text-sm font-medium leading-6 text-gray-100">
-                About
-              </dt>
-              <dd className="mt-1 text-sm leading-6 text-gray-100 sm:col-span-2 sm:mt-0">
+              <dt className="text-sm font-medium leading-6">About</dt>
+              <dd className="mt-1 text-sm leading-6 sm:col-span-2 sm:mt-0">
                 {data[tabNumber].about}
               </dd>
             </div>

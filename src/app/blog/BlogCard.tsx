@@ -17,7 +17,7 @@ const BlogCard = ({ post, list }: { post: Blog; list: string }) => {
   }
   return (
     <>
-      <div className="flex flex-col rounded-lg border border-gray-200 bg-white shadow hover:bg-gray-100 md:max-w-xl md:flex-row">
+      <div className="flex flex-col rounded-lg border border-gray-200 bg-white shadow md:max-w-xl md:flex-row">
         <Image
           className="h-80 w-full rounded-t-lg object-cover md:w-48 md:rounded-none md:rounded-s-lg"
           src={post.eyecatch ? post.eyecatch.url : hatsukami2.src}

@@ -15,7 +15,7 @@ const Loading = () => {
 const PhotoGallery = () => {
   return (
     <>
-      <h2 className="mb-4 mt-2 text-center font-microgramma text-5xl text-gray-100">
+      <h2 className="mb-4 mt-2 text-center font-microgramma text-5xl">
         Gallery
       </h2>
       <Return curPage="1" />

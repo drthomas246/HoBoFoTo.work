@@ -11,7 +11,7 @@ const Home = async ({ params: { postId } }: { params: { postId: string } }) => {
   });
   return (
     <div className="mx-auto my-5 max-w-4xl">
-      <h2 className="mb-4 mt-2 text-center font-microgramma text-5xl text-gray-100">
+      <h2 className="mb-4 mt-2 text-center font-microgramma text-5xl">
         Category
       </h2>
       <Return />
