@@ -2,6 +2,7 @@ import Link from "next/link";
 import React from "react";
 
 import BlogCard from "@/app/blog/BlogCard";
+import DarkToggleButton from "@/components/DarkToggleButton";
 import Return from "@/components/Return";
 
 import { getList } from "../../../libs/microcms";
@@ -12,6 +13,7 @@ const Home = async () => {
     <div className="mx-auto my-5 max-w-4xl">
       <h2 className="mb-4 mt-2 text-center font-microgramma text-5xl">Blog</h2>
       <Return curPage="2" />
+      <DarkToggleButton />
       <nav className="flex justify-center space-x-6 font-microgramma text-2xl">
         <span className="inline-flex items-center gap-x-2 whitespace-nowrap border-b-2 border-[#292929] px-1 py-4 focus:outline-none disabled:opacity-50 dark:border-gray-100">
           List

@@ -1,5 +1,6 @@
 import Link from "next/link";
 
+import DarkToggleButton from "@/components/DarkToggleButton";
 import Return from "@/components/Return";
 
 const Home = () => {
@@ -7,6 +8,7 @@ const Home = () => {
     <div className="mx-auto my-5 max-w-4xl">
       <h2 className="mb-4 mt-2 text-center font-microgramma text-5xl">Blog</h2>
       <Return curPage="2" />
+      <DarkToggleButton />
       <nav className="flex justify-center space-x-6 font-microgramma text-2xl">
         <span className="inline-flex items-center gap-x-2 whitespace-nowrap px-1 py-4 hover:text-blue-600 focus:outline-none disabled:opacity-50">
           <Link href="./">List</Link>

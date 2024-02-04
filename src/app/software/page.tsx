@@ -3,6 +3,7 @@
 import Link from "next/link";
 import React, { createRef, RefObject, useRef, useState } from "react";
 
+import DarkToggleButton from "@/components/DarkToggleButton";
 import Return from "@/components/Return";
 
 const Home = () => {
@@ -49,6 +50,7 @@ const Home = () => {
   return (
     <div className="mx-auto my-5 max-w-2xl">
       <Return curPage="3" />
+      <DarkToggleButton />
       <h2 className="mb-4 mt-2 text-center font-microgramma text-5xl">
         Software
       </h2>

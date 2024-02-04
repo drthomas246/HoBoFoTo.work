@@ -1,5 +1,6 @@
 import React, { Suspense } from "react";
 
+import DarkToggleButton from "@/components/DarkToggleButton";
 import Return from "@/components/Return";
 
 import LoadDataToPhotos from "./LoadDataToPhotos";
@@ -19,6 +20,7 @@ const PhotoGallery = () => {
         Gallery
       </h2>
       <Return curPage="1" />
+      <DarkToggleButton />
       <div className="p-4">
         <Suspense fallback={<Loading />}>
           <LoadDataToPhotos />

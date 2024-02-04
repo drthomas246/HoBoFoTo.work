@@ -10,14 +10,14 @@ const Return = ({ curPage }: { curPage?: string }) => {
     <>
       {curPage !== undefined ? (
         <Link
-          className="fixed right-10 top-5 z-50 rounded border border-gray-100 bg-[#292929] px-4 py-2 font-semibold text-gray-100 hover:border-transparent hover:bg-blue-600 hover:text-gray-100"
+          className="fixed left-10 top-5 z-50 rounded border border-gray-100 bg-[#292929] px-4 py-2 font-semibold text-gray-100 hover:border-transparent hover:bg-blue-600 hover:text-gray-100"
           href={{ pathname: "/", query: { curPage: curPage } }}
         >
           戻る
         </Link>
       ) : (
         <button
-          className="fixed right-10 top-5 z-50 rounded border border-gray-100 bg-[#292929] px-4 py-2 font-semibold text-gray-100 hover:border-transparent hover:bg-blue-600 hover:text-gray-100"
+          className="fixed left-10 top-5 z-50 rounded border border-gray-100 bg-[#292929] px-4 py-2 font-semibold text-gray-100 hover:border-transparent hover:bg-blue-600 hover:text-gray-100"
           type="button"
           onClick={() => router.back()}
         >

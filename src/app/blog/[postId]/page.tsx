@@ -2,6 +2,7 @@ import parse from "html-react-parser";
 import { Metadata } from "next";
 import React from "react";
 
+import DarkToggleButton from "@/components/DarkToggleButton";
 import Date2String from "@/components/DateString";
 import Return from "@/components/Return";
 
@@ -28,6 +29,7 @@ const Home = async ({ params: { postId } }: { params: { postId: string } }) => {
   return (
     <div className="mx-4 my-5 max-w-4xl sm:mx-auto">
       <Return />
+      <DarkToggleButton />
       <header className="flex flex-col">
         <h2 className="mt-6 font-yuseiMagic text-4xl font-bold tracking-tight sm:text-5xl">
           {post.title}
